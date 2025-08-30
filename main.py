@@ -9,7 +9,7 @@ import torch
 from data_processor import DataProcessor  # 确保 DataProcessor 类的路径正确
 
 def load_data(file_path, is_train=True):
-    df = pd.read_excel(file_path, header=1)  # 从第二行开始读取数据
+    df = pd.read_excel(file_path, header=1)  
     if is_train:
         X = df.iloc[:, 0:2074].values  # 波长数，1-2074列
         y = df.iloc[:, 2074].values.ravel()  # 化学成分，第2075列
@@ -161,3 +161,4 @@ if __name__ == "__main__":
 
 
     print("Predictions saved to 'predictions_{model_name}.xlsx' files.")
+
