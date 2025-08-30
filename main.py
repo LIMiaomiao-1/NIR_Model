@@ -30,15 +30,15 @@ def evaluate_model(y_true, y_pred):
 
 if __name__ == "__main__":
     # 加载数据
-    X_train, y_train, sample_ids_train = load_data(r"C:\Users\zmzhang\Desktop\近红外建模\近红外光谱数据与说明-2025年\校正集-总.xlsx", is_train=True)
-    X_test, y_test, sample_ids_test = load_data(r"C:\Users\zmzhang\Desktop\近红外建模\近红外光谱数据与说明-2025年\测试集-总.xlsx", is_train=False)
+    X_train, y_train, sample_ids_train = load_data(r"C:\Users\Desktop\近红外建模\近红外光谱数据与说明-2025年\校正集-总.xlsx", is_train=True)
+    X_test, y_test, sample_ids_test = load_data(r"C:\Users\Desktop\近红外建模\近红外光谱数据与说明-2025年\测试集-总.xlsx", is_train=False)
 
     # 初始化数据处理器
     processor = DataProcessor(X_train, y_train)
 
     # 定义预处理和特征选择方法
     preprocess_methods = ['derivative']  # 可以添加其他预处理方法
-    feature_selection_methods = ['uniform_sampling']  # 确保是列表类型
+    feature_selection_methods = ['recursive_elimination']  
 
     # 定义采样数目
     count = 400  
@@ -158,5 +158,6 @@ if __name__ == "__main__":
             'Predicted': model_results['Predicted']
         })
         predictions_df.to_excel(f'predictions_{model_name}.xlsx', index=False)
+
 
     print("Predictions saved to 'predictions_{model_name}.xlsx' files.")
