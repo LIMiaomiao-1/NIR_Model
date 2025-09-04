@@ -41,7 +41,7 @@ if __name__ == "__main__":
     feature_selection_methods = ['recursive_elimination']  
 
     # 定义采样数目
-    count = 400  
+    count = 500  
 
     # 处理数据
     processed_X_train = X_train.copy()
@@ -161,5 +161,6 @@ if __name__ == "__main__":
 
 
     print("Predictions saved to 'predictions_{model_name}.xlsx' files.")
+
 
 
